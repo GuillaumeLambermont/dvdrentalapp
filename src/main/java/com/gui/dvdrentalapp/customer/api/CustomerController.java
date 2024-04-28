@@ -1,7 +1,6 @@
 package com.gui.dvdrentalapp.customer.api;
 
 import com.gui.dvdrentalapp.customer.api.DTO.CustomerDTO;
-import com.gui.dvdrentalapp.customer.domain.Customer;
 import com.gui.dvdrentalapp.customer.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;

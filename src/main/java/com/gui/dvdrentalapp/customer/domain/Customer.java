@@ -1,7 +1,6 @@
 package com.gui.dvdrentalapp.customer.domain;
 
 import jakarta.persistence.*;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
