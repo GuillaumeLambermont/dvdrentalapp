@@ -13,8 +13,8 @@ import java.util.List;
 @Transactional
 public class FilmService {
 
-    private FilmRepository filmRepository;
-    private FilmMapper filmMapper;
+    private final FilmRepository filmRepository;
+    private final FilmMapper filmMapper;
 
     public FilmService(FilmRepository filmRepository, FilmMapper filmMapper) {
         this.filmRepository = filmRepository;
@@ -26,5 +26,9 @@ public class FilmService {
                 .stream()
                 .map(filmMapper::toDTO)
                 .toList();
+    }
+
+    public FilmDTO getFilmById(long id) {
+        return filmMapper.toDTO(filmRepository.findById(id).orElseThrow( () -> new IllegalArgumentException("Film with this id not found")));
     }
 }

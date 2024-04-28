@@ -6,10 +6,7 @@ import com.gui.dvdrentalapp.film.service.FilmService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,11 @@ public class FilmController {
     @ResponseStatus(HttpStatus.OK)
     public List<FilmDTO> getAllFilms() {
         return filmService.getAllFilms();
+    }
+
+    @GetMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public FilmDTO getFilmById(@PathVariable long id) {
+        return filmService.getFilmById(id);
     }
 }
