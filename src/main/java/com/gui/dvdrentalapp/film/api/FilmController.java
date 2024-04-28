@@ -1,7 +1,6 @@
 package com.gui.dvdrentalapp.film.api;
 
 import com.gui.dvdrentalapp.film.api.DTO.FilmDTO;
-import com.gui.dvdrentalapp.film.domain.Film;
 import com.gui.dvdrentalapp.film.service.FilmService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,12 +22,14 @@ public class FilmController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<FilmDTO> getAllFilms() {
+        logger.info("getAllFilms");
         return filmService.getAllFilms();
     }
 
     @GetMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public FilmDTO getFilmById(@PathVariable long id) {
+        logger.info("getFilmById with id {}", id);
         return filmService.getFilmById(id);
     }
 }
